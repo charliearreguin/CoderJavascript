@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <title>Proyecto Final</title>
+</head>
+<body>
+
+     <!-- INICIA NAVBAR-->
+    
+     <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Hirkum</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Tour</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Merch</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      <!--TERMINA NAVBAR -->
+    
+    <h1 class="text-sm-start text-md-center text-lg-center mb-3 mt-3">MERCH OFICIAL</h1>  
+      
+    <div class="container">
+        <div class="row">
+            
+            <main id="items" class="col-sm-8 row"></main>
+            <aside class="col-sm-4">
+                <h2>Carrito</h2>
+                <ul id="carrito" class="list-group"></ul>
+                <hr>
+                <p class="text-right">Total: $<span id="total"></span></p>
+                <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+            </aside>
+        </div>
+    </div>
+
+<!--INICIA FORM-->
+
+    <form id="form" class="col-lg-6 mb-5 mt-5 container text-center">
+        <h2 class="fs-3 text-center mb-4">¿Quieres recibir noticias y ofertas sobre la banda? ¡Registrate aquí!</h2>
+        <div class="input-group mb-3">
+          <input id="correoForm" type="" class="form-control" placeholder="usuario@email.com" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <input class="btn btn-outline-secondary" type="submit" value="Registrarme" >
+        </div>
+      </form>
+
+<!--TERMINA FORM-->
+
+<script src="stock.js"></script>
+<script src="main.js"></script>  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>  
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
