@@ -9,10 +9,11 @@
 
     //DOM HTML
 
-    function renderizarProductos() {
-        fetch("/stock.json")
-        .then((response) => response.json())
-        .then((productos) => {
+    async function renderizarProductos() {
+        
+       const response = await fetch("/stock.json");
+       const productos = await response.json();
+
             productos.forEach((info) => {
                 // Estructura
                 const miNodo = document.createElement('div');
@@ -45,7 +46,7 @@
                 miNodoCardBody.appendChild(miNodoBoton);
                 miNodo.appendChild(miNodoCardBody);
                 DOMitems.appendChild(miNodo);
-            })
+            
         });
     };
     
@@ -111,11 +112,10 @@
 
         const carritoSinDuplicados = [...new Set(carrito)];
 
-        carritoSinDuplicados.forEach((item) => {
+        carritoSinDuplicados.forEach(async (item) => {
 
-            fetch("/stock.json")
-            .then((response) => response.json())
-            .then((productos) => {
+            const response = await fetch("/stock.json");
+            const productos = await response.json();
                 const miItem = productos.filter((itemBaseDatos) => {
 
                     return itemBaseDatos.id === parseInt(item);
@@ -138,7 +138,7 @@
                 miBoton.addEventListener('click', borrarItemCarrito);
                 miNodo.appendChild(miBoton);
                 DOMcarrito.appendChild(miNodo);
-            })    
+                
         });
 
         DOMtotal.textContent = calcularTotal();
@@ -155,19 +155,18 @@
     };
 
    
-    function calcularTotal() {
-        fetch("/stock.json")
-        .then((response) => response.json())
-        .then((productos) => {
+    async function calcularTotal() {
+        const response = await fetch("/stock.json");
+        const productos = await response.json();
 
-            return carrito.reduce((total, item) => {
+        return carrito.reduce((total, item) => {
         
-                const miItem = productos.filter((itemBaseDatos) => {
-                    return itemBaseDatos.id === parseInt(item);
-                });
-                return total + miItem[0].precio;
-            }, 0).toFixed(2);
-            })
+        const miItem = productos.filter((itemBaseDatos) => {
+            return itemBaseDatos.id === parseInt(item);
+            });
+        return total + miItem[0].precio;
+        }, 0).toFixed(2);
+            
             
     };
 
